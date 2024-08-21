@@ -5,14 +5,13 @@ import { FaInstagram } from 'react-icons/fa6';
 
 function Footer() {
   return (
-    <footer className="bg-[#063970] text-[#ffffff] py-10 md:px-12">
+    <footer className="bg-[#534998] text-[#ffffff] py-10 md:px-12">
       <div className="lg:grid lg:grid-cols-3 ">
         <div className="px-4 lg:-mr-10">
           <h2 className="font-main text-h2">STEP ON</h2>
           <p>
-            Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada
-            terra videa magna derita valies darta donna mare fermentum iaculis eu
-            non diam phasellus.
+          STEP ON aims to promote sustainable societal solution through enhanced use of leading-edge technology
+          
           </p>
           <div>
             <div className="flex py-6">
