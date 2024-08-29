@@ -10,8 +10,9 @@ function Home() {
       <>
         <div className="mb-20">
           <Nav />
+          <HomeTitle/>
         </div>
-        <HomeTitle/>
+        
         <Service/>
         <Contact/>
         <Footer/>

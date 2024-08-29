@@ -6,7 +6,7 @@ function ContactHeader() {
   return (
     <Header
       title="Contact"
-      desc="Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum"
+      desc="Reach out to us with your questions or feedback, and we'll get back to you soon!"
     />
   );
 }

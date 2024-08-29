@@ -28,7 +28,7 @@ function ContactForm() {
             <p className="text-white">
               <span className="font-semibold text-lg">Email:</span>
               <br />
-              info@example.com
+              info@stepontech.in
             </p>
           </div>
         </div>

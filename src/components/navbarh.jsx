@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import logoS from "../images/logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Import Link for routing
 
 const ROUTES = [
-  { path: "/", label: "Home" },
-  { path: "/about", label: "About" },
-  { path: "/#services", label: "Services" },
-  { path: "/#contact", label: "Contact" },
+  { path: "/", label: "Home" }, // Home page route
+  { path: "/about", label: "About" }, // Route to About page
+  { path: "/#services", label: "Services" }, // Anchor link for Services section on Home page
+  { path: "/#contact", label: "Contact" }, // Anchor link for Contact section on Home page
 ];
 
 function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { hash } = useLocation();
+  const { hash } = useLocation(); // Get hash from URL
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -45,9 +45,9 @@ function Nav() {
 
   return (
     <nav
-      className={`z-10 fixed top-0 w-full flex flex-col lg:flex-row justify-between items-center lg:px-24 pb-4 ${
-        isScrolled ? "bg-[#534998]" : "bg-transparent"
-      } h-24 transition-all duration-100 ease-in-out`}
+      className={`z-10 fixed top-0 w-full flex flex-wrap justify-between items-center lg:px-24 pb-4 ${
+        isScrolled ? "bg-[#534998]" : "bg-[#EEF1F6]"
+      } h-24 transition-all duration-100 ease-in-out`} // Increased navbar height
     >
       <div className="flex items-center justify-between w-full lg:w-auto lg:px-4">
         <div className="flex items-center justify-center lg:justify-start transition-all duration-100 ease-in-out">
@@ -58,15 +58,15 @@ function Nav() {
           />
           <div className="flex flex-col items-center lg:items-start">
             <h1
-              className={`text-3xl font-bold lg:text-2xl transition-all duration-100 ease-in-out ${
-                isScrolled ? "text-white" : "text-white"
+              className={`text-3xl font-bold lg:text-2xl transition-all duration-100 ease-in-out ml-2 ${
+                isScrolled ? "text-white" : "text-[#534998]"
               }`}
             >
               STEP ON
             </h1>
             <p
-              className={`text-sm lg:text-xs text-gray-200 ${
-                isScrolled ? "text-gray-300" : "text-gray-300"
+              className={`text-sm lg:text-xs transition-all duration-100 ease-in-out ${
+                isScrolled ? "text-gray-300" : "text-gray-700"
               }`}
             >
               Sustainable Societal Solutions
@@ -92,13 +92,13 @@ function Nav() {
       >
         <ul
           className={`lg:space-x-10 lg:bg-transparent rounded-lg md:py-4 pt-14 flex flex-col lg:flex-row text-p md:font-700 w-full px-10 ${
-            isScrolled ? "bg-[#534998]" : "bg-transparent"
+            isScrolled ? "bg-[#534998]" : "bg-[#EEF1F6]"
           }`}
         >
           {ROUTES.map(({ path, label }, i) => (
             <li
-              className={`lg:hover:bg-transparent  hover:text-second py-2 cursor-pointer rounded ${
-                isScrolled ? "bg-[#534998]" : "bg-transparent"
+              className={`lg:hover:bg-transparent hover:text-second py-2 cursor-pointer rounded ${
+                isScrolled ? "bg-[#534998]" : "bg-[#EEF1F6]"
               } ${
                 i === 0
                   ? "lg:bg-transparent text-white transition duration-100 ease-in-out"
@@ -109,7 +109,7 @@ function Nav() {
               <Link
                 to={path}
                 className={`${
-                  isScrolled ? "text-white" : "text-white"
+                  isScrolled ? "text-white" : "text-[#534998]"
                 } transition-colors duration-100 ease-in-out`}
               >
                 {label}

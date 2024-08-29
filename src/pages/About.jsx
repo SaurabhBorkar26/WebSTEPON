@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../components/Navbar";
+import Nav from "../components/navbarh";
 import AboutUs from "../pages/Aboutus"
 import Team from "../components/Team/Team";
 import Footer from "../components/Footer";
@@ -9,6 +9,7 @@ function About() {
       <>
         <div className="mb-20">
           <Nav />
+          
         </div>
         <div>
         <AboutUs/>

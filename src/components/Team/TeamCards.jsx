@@ -1,17 +1,19 @@
 /*eslint-disable*/
 import React from 'react';
 import TeamCard from "./TeamCard";
+import Akash from "../../images/CoFounders/Akash.jpg";
+import Saura from "../../images/CoFounders/Saurabh.jpg";
 
 const info = [
   {
-    name: "Aksh Naik",
+    name: "Akash Naik",
     position: "Co-Founder",
-    image: "/images/team/team-1.jpg",
+    image: Akash,
   },
   {
     name: "Saurabh Borkar",
     position: "Co-Founder",
-    image: "/images/team/team-2.jpg",
+    image: Saura,
   },
 ];
 
