@@ -1,10 +1,24 @@
-/* eslint-disable */
-import React from "react";
+import React, { useRef } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { BsClock, BsPhone } from "react-icons/bs";
 import { MdOutlineMail } from "react-icons/md";
+import emailjs from '@emailjs/browser';
 
 function ContactForm() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_44nado8', 'template_an5ikxm', form.current, 'zSwGMKgOFOeumFWnj')
+      .then((result) => {
+          console.log('SUCCESS!', result.text);
+          form.current.reset(); // Reset the form after successful submission
+      }, (error) => {
+          console.log('FAILED...', error.text);
+      });
+  };
+
   return (
     <div className="lg:flex lg:w-full lg:space-x-0 lg:px-16">
       <div className="bg-[#534998] space-y-4 py-4 text-main font-secondary m-4 md:m-12 lg:m-0 rounded-xl lg:w-[30%]">
@@ -57,34 +71,41 @@ function ContactForm() {
           </div>
         </div>
       </div>
+
       <div className="bg-[#a6a1ce] mx-4 px-8 pt-6 pb-10 space-y-6 md:mx-12 lg:w-[70%] shadow-xl transform hover:translate-y-[-2px] transition-transform duration-200 ease-in-out rounded-xl">
-        <div className="md:flex md:space-x-5 space-y-6">
+        <form ref={form} onSubmit={sendEmail}>
+          <div className="md:flex md:space-x-5 space-y-6">
+            <input
+              type="text"
+              name="user_name"
+              className="w-full h-12 px-3 border rounded-md focus:outline-none focus:border-green-500 md:mt-6 shadow-inner"
+              placeholder="Your name"
+            />
+            <input
+              type="email"
+              name="user_email"
+              className="w-full h-12 mt-2 px-3 border rounded-md focus:outline-none focus:border-green-500 shadow-inner"
+              placeholder="Your email"
+            />
+          </div>
           <input
             type="text"
-            className="w-full h-12 px-3 border rounded-md focus:outline-none focus:border-green-500 md:mt-6 shadow-inner"
-            placeholder="Your name"
-          />
-          <input
-            type="email"
+            name="subject"
             className="w-full h-12 mt-2 px-3 border rounded-md focus:outline-none focus:border-green-500 shadow-inner"
-            placeholder="Your email"
+            placeholder="Subject"
           />
-        </div>
-        <input
-          type="text"
-          className="w-full h-12 mt-2 px-3 border rounded-md focus:outline-none focus:border-green-500 shadow-inner"
-          placeholder="Subject"
-        />
-        <textarea
-          className="w-full h-40 mt-2 px-3 border rounded-md focus:outline-none focus:border-green-500 shadow-inner resize-none"
-          placeholder="Your message"
-        />
-        <button
-          type="button"
-          className="bg-[#534998] text-white rounded-md px-4 py-2 hover:bg-[#2da074] shadow-lg transform hover:translate-y-[-2px] transition-transform duration-200 ease-in-out"
-        >
-          Send Message
-        </button>
+          <textarea
+            name="message"
+            className="w-full h-40 mt-2 px-3 border rounded-md focus:outline-none focus:border-green-500 shadow-inner resize-none"
+            placeholder="Your message"
+          />
+          <button
+            type="submit"
+            className="bg-[#534998] text-white rounded-md px-4 py-2 hover:bg-[#2da074] shadow-lg transform hover:translate-y-[-2px] transition-transform duration-200 ease-in-out"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
     </div>
   );

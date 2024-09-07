@@ -1,6 +1,6 @@
 import React from "react";
 import { FaRegCirclePlay } from "react-icons/fa6";
-import heroImg from "../../images/home.jpg"; // Import the image
+import heroImg from "../../images/home1.jpg"; // Import the image
 
 export default function HomeTitle() {
   return (
