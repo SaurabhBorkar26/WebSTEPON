@@ -10,7 +10,7 @@ function ContactForm() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_44nado8', 'template_an5ikxm', form.current, 'zSwGMKgOFOeumFWnj')
+    emailjs.sendForm('service_44nado8', 'template_cdaj3li', form.current, 'zSwGMKgOFOeumFWnj')
       .then((result) => {
           console.log('SUCCESS!', result.text);
           form.current.reset(); // Reset the form after successful submission
