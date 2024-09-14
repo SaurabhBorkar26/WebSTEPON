@@ -46,41 +46,58 @@ function Nav() {
   return (
     <nav
       className={`z-10 fixed top-0 w-full flex flex-col lg:flex-row justify-between items-center lg:px-24 pb-4 ${
-        isScrolled ? "bg-[#534998]" : "bg-transparent"
+        isScrolled || isMenuOpen ? "bg-[#534998]" : "bg-transparent"
       } h-24 transition-all duration-100 ease-in-out`}
     >
-      <div className="flex items-center justify-between w-full lg:w-auto lg:px-4">
-        <div className="flex items-center justify-center lg:justify-start transition-all duration-100 ease-in-out">
-          <img
-            src={logoS}
-            alt="STEP ON Logo"
-            className="w-24 h-24 mr-4 lg:mr-6 transition-all duration-100 ease-in-out" // Increased logo size
-          />
-          <div className="flex flex-col items-center lg:items-start">
-            <h1
-              className={`text-3xl font-bold lg:text-2xl transition-all duration-100 ease-in-out ${
-                isScrolled ? "text-white" : "text-white"
-              }`}
+      <div className="w-full flex items-center justify-between lg:justify-start lg:items-center lg:w-auto lg:px-4">
+        {/* Mobile View */}
+        <div className="flex lg:hidden items-center justify-between w-full">
+          <div className="flex items-center ml-4"> {/* Added margin-left for mobile */}
+            <div className="flex flex-col items-start">
+              <h1 className="text-3xl font-bold text-white">STEP ON</h1>
+              <p className="text-sm text-gray-200">Sustainable Societal Solutions</p>
+            </div>
+          </div>
+          <div className="flex items-center">
+            <img
+              src={logoS}
+              alt="STEP ON Logo"
+              className="w-20 h-20"
+            />
+          </div>
+          <div>
+            <button
+              onClick={toggleMenu}
+              type="button"
+              className="focus:ring-2 focus:ring-gray-200 p-2 rounded-lg transition-all duration-100 ease-in-out"
             >
-              STEP ON
-            </h1>
-            <p
-              className={`text-sm lg:text-xs text-gray-200 ${
-                isScrolled ? "text-gray-300" : "text-gray-300"
-              }`}
-            >
-              Sustainable Societal Solutions
-            </p>
+              <RxHamburgerMenu size={25} />
+            </button>
           </div>
         </div>
-        <div className="lg:hidden">
-          <button
-            onClick={toggleMenu}
-            type="button"
-            className="focus:ring-2 focus:ring-gray-200 p-2 rounded-lg transition-all duration-100 ease-in-out"
-          >
-            <RxHamburgerMenu size={25} />
-          </button>
+
+        {/* Desktop View */}
+        <div className="hidden lg:flex items-center justify-between w-full">
+          <div className="flex items-center">
+            <img
+              src={logoS}
+              alt="STEP ON Logo"
+              className="w-24 h-24 mr-4"
+            />
+            <div className="flex flex-col items-start">
+              <h1 className="text-3xl font-bold text-white">STEP ON</h1>
+              <p className="text-sm text-gray-200">Sustainable Societal Solutions</p>
+            </div>
+          </div>
+          <div className="lg:hidden">
+            <button
+              onClick={toggleMenu}
+              type="button"
+              className="focus:ring-2 focus:ring-gray-200 p-2 rounded-lg transition-all duration-100 ease-in-out"
+            >
+              <RxHamburgerMenu size={25} />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -92,13 +109,13 @@ function Nav() {
       >
         <ul
           className={`lg:space-x-10 lg:bg-transparent rounded-lg md:py-4 pt-14 flex flex-col lg:flex-row text-p md:font-700 w-full px-10 ${
-            isScrolled ? "bg-[#534998]" : "bg-transparent"
+            isScrolled || isMenuOpen ? "bg-[#534998]" : "bg-transparent"
           }`}
         >
           {ROUTES.map(({ path, label }, i) => (
             <li
-              className={`lg:hover:bg-transparent  hover:text-second py-2 cursor-pointer rounded ${
-                isScrolled ? "bg-[#534998]" : "bg-transparent"
+              className={`lg:hover:bg-transparent hover:text-second py-2 cursor-pointer rounded ${
+                isScrolled || isMenuOpen ? "bg-[#534998]" : "bg-transparent"
               } ${
                 i === 0
                   ? "lg:bg-transparent text-white transition duration-100 ease-in-out"
@@ -109,7 +126,7 @@ function Nav() {
               <Link
                 to={path}
                 className={`${
-                  isScrolled ? "text-white" : "text-white"
+                  isScrolled || isMenuOpen ? "text-white" : "text-white"
                 } transition-colors duration-100 ease-in-out`}
               >
                 {label}

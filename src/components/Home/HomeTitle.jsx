@@ -14,15 +14,16 @@ export default function HomeTitle() {
       >
         <div className="w-full flex flex-col items-center justify-center lg:flex-row-reverse h-full lg:px-24">
           {/* Start header info */}
-          <div className="flex flex-col text-center items-center py-10 md:w-11/12 lg:w-9/12 lg:items-start lg:ml-10">
-            <h1 className="text-[40px] text-white md:text-[52px] font-abril">
+          <div className="flex flex-col text-center items-center py-10 px-4 md:px-6 w-full lg:w-9/12 lg:items-start lg:ml-10">
+            <h1 className="text-[32px] text-white md:text-[40px] lg:text-[52px] font-abril leading-tight">
               Welcome to STEP ON
             </h1>
-            <p className="text-[20px] text-white text-opacity-60 font-default text-p px-10 py-3 max-w-[750px] text-center lg:px-0 lg:text-start">
-              STEP ON aims to promote sustainable societal solutions through enhanced use of leading-edge technology.
+            <p className="text-[16px] md:text-[18px] lg:text-[20px] text-white text-opacity-60 font-default text-p py-3 max-w-[750px] text-center lg:text-left leading-relaxed">
+              STEP ON aims to promote sustainable societal solutions through
+              enhanced use of leading-edge technology.
             </p>
-            <div className="flex justify-between py-3 w-92 h-32">
-              {/* Buttons or additional content can go here */}
+            <div className="flex justify-between py-3 w-full max-w-xs md:max-w-sm lg:max-w-md">
+              {/* You can add buttons or additional content here */}
             </div>
           </div>
         </div>
@@ -30,7 +31,7 @@ export default function HomeTitle() {
         {/* Adjust the height of the wave */}
         <div className="absolute bottom-0 w-full overflow-hidden leading-none">
           <svg
-            className="relative block w-full h-[112px]" // Increased height by 2 points (from 100px to 112px)
+            className="relative block w-full h-[100px] md:h-[112px]"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 24 150 28"
             preserveAspectRatio="none"
