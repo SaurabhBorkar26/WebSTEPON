@@ -66,7 +66,7 @@ function ContactForm() {
             <p className="text-white">
               <span className="font-semibold text-lg">Open Hours:</span>
               <br />
-              Mon-Sat: 10:00AM - 16:00PM
+              Mon-Fri: 10:00AM - 4:00PM
             </p>
           </div>
         </div>
