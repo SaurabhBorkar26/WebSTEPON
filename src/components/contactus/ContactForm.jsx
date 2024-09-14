@@ -5,28 +5,24 @@ import { MdOutlineMail } from "react-icons/md";
 import emailjs from '@emailjs/browser';
 
 function ContactForm() {
-  const form = useRef(); // Reference for the form
+  const form = useRef();
 
   const sendEmail = (e) => {
-    e.preventDefault(); // Prevent page refresh
+    e.preventDefault();
 
-    // Sending email via EmailJS
     emailjs.sendForm('service_44nado8', 'template_cdaj3li', form.current, 'zSwGMKgOFOeumFWnj')
       .then((result) => {
-        console.log('SUCCESS!', result.text);
-        alert('Email sent successfully!'); // Alert user on success
-        form.current.reset(); // Reset the form after successful submission
+          console.log('SUCCESS!', result.text);
+          form.current.reset(); // Reset the form after successful submission
       }, (error) => {
-        console.log('FAILED...', error.text);
-        alert('Failed to send email, please try again.');
+          console.log('FAILED...', error.text);
       });
   };
 
   return (
     <div className="lg:flex lg:w-full lg:space-x-0 lg:px-16">
-      {/* Contact Info Section */}
       <div className="bg-[#534998] space-y-4 py-4 text-main font-secondary m-4 md:m-12 lg:m-0 rounded-xl lg:w-[30%]">
-        {/* Location */}
+        {/* Location Block */}
         <div className="bg-[#534998] mx-4 flex p-4 space-x-3 rounded-xl h-24 shadow-lg transform hover:translate-y-[-2px] transition-transform duration-200 ease-in-out">
           <div className="bg-[#a6a1ce] rounded-full flex items-center justify-center h-12 w-12 hover:bg-white hover:text-green-600 lg:w-16 lg:h-16">
             <IoLocationOutline size={25} />
@@ -39,7 +35,8 @@ function ContactForm() {
             </p>
           </div>
         </div>
-        {/* Email */}
+
+        {/* Email Block */}
         <div className="bg-[#534998] mx-4 flex p-4 space-x-3 rounded-xl h-24 shadow-lg transform hover:translate-y-[-2px] transition-transform duration-200 ease-in-out">
           <div className="bg-[#a6a1ce] rounded-full flex items-center justify-center h-12 w-12 hover:bg-white hover:text-green-600">
             <MdOutlineMail size={25} />
@@ -52,7 +49,8 @@ function ContactForm() {
             </p>
           </div>
         </div>
-        {/* Phone */}
+
+        {/* Phone Block */}
         <div className="bg-[#534998] mx-4 flex p-4 space-x-3 rounded-xl h-24 shadow-lg transform hover:translate-y-[-2px] transition-transform duration-200 ease-in-out">
           <div className="bg-[#a6a1ce] rounded-full flex items-center justify-center h-12 w-12 hover:bg-white hover:text-green-600">
             <BsPhone size={25} />
@@ -65,7 +63,8 @@ function ContactForm() {
             </p>
           </div>
         </div>
-        {/* Hours */}
+
+        {/* Open Hours Block */}
         <div className="bg-[#534998] mx-4 flex p-4 space-x-3 rounded-xl h-24 shadow-lg transform hover:translate-y-[-2px] transition-transform duration-200 ease-in-out">
           <div className="bg-[#a6a1ce] rounded-full flex items-center justify-center h-12 w-12 hover:bg-white hover:text-green-600">
             <BsClock size={25} />
@@ -86,25 +85,25 @@ function ContactForm() {
           <div className="md:flex md:space-x-5 space-y-6">
             <input
               type="text"
-              name="user_name" // EmailJS expects this name
+              name="from_name"  // Updated to match EmailJS template
               className="w-full h-12 px-3 border rounded-md focus:outline-none focus:border-green-500 md:mt-6 shadow-inner"
               placeholder="Your name"
             />
             <input
               type="email"
-              name="user_email" // EmailJS expects this name
+              name="email_id"  // Updated to match EmailJS template
               className="w-full h-12 mt-2 px-3 border rounded-md focus:outline-none focus:border-green-500 shadow-inner"
               placeholder="Your email"
             />
           </div>
           <input
             type="text"
-            name="subject" // EmailJS expects this name
+            name="subject"  // Subject field name
             className="w-full h-12 mt-2 px-3 border rounded-md focus:outline-none focus:border-green-500 shadow-inner"
             placeholder="Subject"
           />
           <textarea
-            name="message" // EmailJS expects this name
+            name="message"  // Message field name
             className="w-full h-40 mt-2 px-3 border rounded-md focus:outline-none focus:border-green-500 shadow-inner resize-none"
             placeholder="Your message"
           />
