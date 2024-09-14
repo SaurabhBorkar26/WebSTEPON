@@ -49,21 +49,19 @@ function Nav() {
         isScrolled || isMenuOpen ? "bg-[#534998]" : "bg-transparent"
       } h-24 transition-all duration-100 ease-in-out`}
     >
-      <div className="w-full flex items-center justify-between lg:justify-start lg:items-center lg:w-auto lg:px-4">
+      <div className="w-full flex items-center lg:justify-between lg:items-center">
         {/* Mobile View */}
-        <div className="flex lg:hidden items-center justify-between w-full">
-          <div className="flex items-center ml-4"> {/* Added margin-left for mobile */}
-            <div className="flex flex-col items-start">
-              <h1 className="text-3xl font-bold text-white">STEP ON</h1>
-              <p className="text-sm text-gray-200">Sustainable Societal Solutions</p>
-            </div>
-          </div>
-          <div className="flex items-center">
+        <div className={`flex lg:hidden items-center justify-between w-full px-4 ${isMenuOpen ? "bg-[#534998]" : ""}`}>
+          <div className="flex-1 flex items-center">
             <img
               src={logoS}
               alt="STEP ON Logo"
-              className="w-20 h-20"
+              className={`w-20 h-20`}
             />
+            <div className="flex flex-col ml-4">
+              <h1 className="text-3xl font-bold text-white">STEP ON</h1>
+              <p className="text-sm text-gray-200">Sustainable Societal Solutions</p>
+            </div>
           </div>
           <div>
             <button
@@ -77,7 +75,7 @@ function Nav() {
         </div>
 
         {/* Desktop View */}
-        <div className="hidden lg:flex items-center justify-between w-full">
+        <div className="hidden lg:flex items-center justify-between w-full px-4">
           <div className="flex items-center">
             <img
               src={logoS}
