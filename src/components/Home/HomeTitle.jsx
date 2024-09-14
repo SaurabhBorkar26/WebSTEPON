@@ -18,7 +18,7 @@ export default function HomeTitle() {
             <h1 className="text-[32px] text-white md:text-[40px] lg:text-[52px] font-abril leading-tight">
               Welcome to STEP ON
             </h1>
-            <p className="text-[16px] md:text-[18px] lg:text-[20px] text-white text-opacity-60 font-default text-p py-3 max-w-[750px] text-center lg:text-left leading-relaxed">
+            <p className="text-[16px] md:text-[18px] lg:text-[20px] text-white text-opacity-110 font-default text-p py-3 max-w-[750px] text-center lg:text-left leading-relaxed">
               STEP ON aims to promote sustainable societal solutions through
               enhanced use of leading-edge technology.
             </p>
